@@ -1,0 +1,7 @@
+.location__description {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 15px 31px 21px;   
+}

@@ -1,0 +1,19 @@
+.location__like_active { 
+    background-image: url(../../../../images/Like_active.svg); 
+    background-repeat: no-repeat; 
+    background-color: white; 
+    border: none; 
+    height: 18.13px; 
+    width: 20.78px; 
+    font-style: normal; 
+    font-weight: 900; 
+    font-size: 24px; 
+    line-height: 29px; 
+    color: #000000; 
+    margin: 0; 
+} 
+ 
+.location__like_active:hover { 
+    opacity: 0.3; 
+    cursor: pointer; 
+} 

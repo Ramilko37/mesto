@@ -1,0 +1,18 @@
+@import url(__logo/header__logo.css);
+
+.header {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 45px auto 36px;
+    z-index: 10;
+    border-bottom: 1px solid rgba(84, 84, 84, .7);
+}
+
+@media screen and (max-width: 640px) {
+    .header {
+     width: 320px;
+     margin: 28px 0 38px;
+     align-self: center;
+    }
+}

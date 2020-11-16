@@ -1,0 +1,19 @@
+.profile__avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 60px;
+    margin-right: 30px;
+    background-image: url(../../../images/avatar.jpg);
+    background-size: contain;
+    
+}
+
+.profile__avatar:hover {
+    cursor: url(../../../images/pencil.png) auto;
+}
+
+@media screen and (max-width: 640px) {
+    .profile__avatar {
+    margin-right: 0px;
+    }
+}

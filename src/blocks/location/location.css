@@ -1,0 +1,16 @@
+
+@import url(__image/location__image.css);
+@import url(__description/location__decription.css);
+@import url(__title/location__title.css);
+@import url(__delete/location__delete.css);
+@import url(__like-container/location__like-container.css);
+@import url(__like/location__like.css);
+@import url(__like-counter/location__like-counter.css);
+
+.location {
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    overflow: hidden;
+}

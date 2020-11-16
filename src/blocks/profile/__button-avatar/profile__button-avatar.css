@@ -1,0 +1,17 @@
+.profile__button-avatar {
+    width: 120px;
+    height: 120px;
+    background: none;
+    border-radius: 60px;
+    cursor: pointer;
+    transition: background-color .2s ease;
+  }
+  
+  .profile__button-avatar:hover,
+  .profile__button-avatar:focus {
+    background-image: url(../../../images/pen.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: rgba(0,0,0,.8);
+    border: none;
+  }
