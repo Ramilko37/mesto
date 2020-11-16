@@ -27,8 +27,11 @@ export default class Api {
 
 
   getContent() {
-    return Promise.all([this.getInitialCards(), this.getUserInfo()])
+    return Promise.all([this.getInitialCards(), this.getUserInfo()]) // [cards,userInfo]
   }
+
+
+
 
   // Загрузка карточек  сервера
   getInitialCards() {
@@ -113,7 +116,7 @@ export default class Api {
   //отменить лайк
   dislike(id) {
     return fetch(`${this._url}/cards/likes/${id}`, {
-        method: 'PUT',
+        method: 'DELETE',
         headers: this._headers,
       })
       .then(resHandler)
@@ -127,7 +130,7 @@ export default class Api {
         method: 'PATCH',
         headers: this._headers,
         body: JSON.stringify({
-          avatar: data.link,
+          avatar: data.url,
         })
       })
       .then(resHandler)
