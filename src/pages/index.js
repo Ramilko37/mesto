@@ -104,29 +104,16 @@ api.getContent()
                 }
             
             );
-<<<<<<< HEAD
-           return card.createCard();
-            
-        }
-
-=======
 
             return card.createCard();           
         }
 
 
->>>>>>> develop
         function addNewCard(data) {
             const card = createCard(data);
             cardList.addItem(card);
         }
-<<<<<<< HEAD
-
-
-
-=======
     
->>>>>>> develop
         console.log('userInfoData avatar', userInfoData)
         // обновить профиль юзера
         userInfo.setUserInfo({
