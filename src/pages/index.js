@@ -65,7 +65,7 @@ api.getContent()
         cardList.renderItems()
         
 
-        function addNewCard(data) {
+        function createCard(data) {
             const card = new Card(
                 data,
                 '.card-template',
@@ -102,12 +102,16 @@ api.getContent()
                         }
                     }
                 }
+            
             );
 
-            const cardElement = card.createCard();
- 
-            cardList.addItem(cardElement);
-            
+            return card.createCard();           
+        }
+
+
+        function addNewCard(data) {
+            const card = createCard(data);
+            cardList.addItem(card);
         }
     
         console.log('userInfoData avatar', userInfoData)
