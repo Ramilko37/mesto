@@ -11,7 +11,7 @@ export default class UserInfo {
         return {
             name: this._nameElement.textContent,
             job: this._jobElement.textContent,
-        
+            avatar: this._avatarSelector.src
         };
     }
 
@@ -19,7 +19,7 @@ export default class UserInfo {
     setUserInfo({name, job, avatar}) {
         this._nameElement.textContent = name;
         this._jobElement.textContent = job;
-        this._avatarSelector.style.backgroundImage = `url(${avatar})`
+        this._avatarSelector.src = avatar
     }
 
     setUserAvatar(avatar) {

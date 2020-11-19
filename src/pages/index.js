@@ -42,6 +42,7 @@ const api = new Api({
     }
 });
 
+const errHandler = err => console.log(err);
 
 const imageModal = new PopupWithImage(imageModalSelector);
 imageModal.setEventListeners();
@@ -49,8 +50,6 @@ imageModal.setEventListeners();
 function handleImageClick(link, caption) {
     imageModal.open(link, caption);
 }
-
-
 
 api.getContent()
     .then(([cards, userInfoData]) => {
@@ -64,6 +63,7 @@ api.getContent()
         }, placesListSelector)
 
         cardList.renderItems()
+        
 
         function createCard(data) {
             const card = new Card(
@@ -80,41 +80,53 @@ api.getContent()
                                     console.log('deleted!!!')
                                     card.cardDelete();
                                 })
-                                .catch((err) => {
-                                    console.log('ошибка удаления!')
-                                    console.log(err);
-                                });
+                                .catch(errHandler);
                         })
                     },
-                    handleLike: (id, isCardLiked) => { // (this._id, this._isCardLiked) -> (sfsdfsdf, true)
+                    handleLike: (id, isCardLiked) => { 
                         if (isCardLiked) {
                             api.dislike(id)
                                 .then(res => {
                                     card.updateLikes(res.likes);
-                                    card.toggleLike();
+                                    // card.toggleLike();
                                 })
+                                .catch(errHandler);
                         }
                         else {
                             api.like(id)
                                 .then(res => {
                                     card.updateLikes(res.likes);
-                                    card.toggleLike();
+                                    // card.toggleLike();
                                 })
+                                .catch(errHandler);
                         }
                     }
                 }
+            
             );
+<<<<<<< HEAD
            return card.createCard();
             
         }
 
+=======
+
+            return card.createCard();           
+        }
+
+
+>>>>>>> develop
         function addNewCard(data) {
             const card = createCard(data);
             cardList.addItem(card);
         }
+<<<<<<< HEAD
 
 
 
+=======
+    
+>>>>>>> develop
         console.log('userInfoData avatar', userInfoData)
         // обновить профиль юзера
         userInfo.setUserInfo({
@@ -140,12 +152,11 @@ api.getContent()
                 })
                     .then(res => {
                         addNewCard(res);
+                        addModal.close();
                     })
-                    .catch((err) => {
-                        console.log(err);
-                    })
+                    .catch(errHandler)
                     .finally(() => {
-                        editModal.loading('Сохранить')
+                       addModal.loading('Сохранение')
                     })
 
             }
@@ -154,7 +165,10 @@ api.getContent()
         openAddCardModalButton.addEventListener('click', () => {
             addModal.open()
         });
+     
     })
+    .catch(errHandler);
+// здесь заканчивается обработчик .then
 
 const editModal = new PopupWithForm('.popup_type_edit-profile', {
     formSubmitHandler: (data) => {
@@ -170,6 +184,8 @@ const editModal = new PopupWithForm('.popup_type_edit-profile', {
                     name: res.name,
                     job: res.about
                 })
+            // запрос выполнен успешно, далее происходит закрытие 
+            editModal.close();
             })
             .catch((err) => {
                 console.log(err);
@@ -187,7 +203,8 @@ editModal.setEventListeners();
 
 const newAvatarModal = new PopupWithForm('.popup_type_add-avatar', {
     formSubmitHandler: (data) => {
-        console.log('refreshAvatar data', data)
+        console.log('refreshAvatar data', data);
+        newAvatarModal.loading('Сохранение...');
         api.refreshAvatar(data)
             .then(res => {
                 userInfo.setUserAvatar(res.avatar)
@@ -197,6 +214,7 @@ const newAvatarModal = new PopupWithForm('.popup_type_add-avatar', {
             })
             .finally(() => {
                 newAvatarModal.loading('Сохранить')
+                newAvatarModal.close();
             })
 
     }
@@ -208,11 +226,6 @@ newAvatarModal.setEventListeners();
 profileAvatar.addEventListener('click', () => {
     newAvatarModal.open();
 })
-
-
-
-
-
 
 
 // placesList - блок, который нужно заполнить датой.

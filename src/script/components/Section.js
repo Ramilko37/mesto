@@ -1,3 +1,5 @@
+import { data } from "jquery";
+
 export default class Section {
     constructor({items, renderer}, containerSelector) {
         this._renderedItems = items;
@@ -7,7 +9,7 @@ export default class Section {
     }
     
     renderItems() {
-        this._renderedItems.forEach(item =>  this._renderer(item));
+        this._renderedItems.forEach(data =>  this._renderer(data));
     };
 
     addItem(element){

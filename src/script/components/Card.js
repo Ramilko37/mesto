@@ -49,13 +49,15 @@ export default class Card {
         this._cardLikeNumber.textContent = this._likes.length;
     }
 
-    toggleLike() {
-        this._toggleLikeState();
-        this._toggleCountLikeState()
-    }
+    // toggleLike() {
+    //     this._toggleLikeState();
+    //     this._toggleCountLikeState()
+    // }
 
     updateLikes(newLikes) {
         this._likes = newLikes;
+        this._toggleLikeState();
+        this._toggleCountLikeState()
     }
 
     // лайкнута ли функция
