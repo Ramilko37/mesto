@@ -16,7 +16,7 @@ const resHandler = res => {
   console.log(res.status);
   return res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`)
 }
-const errHandler = err => console.log(err);
+
 
 
 export default class Api {
@@ -41,7 +41,7 @@ export default class Api {
         headers: this._headers
       })
       .then(resHandler)
-      .catch(errHandler);
+    
 
   }
 
@@ -52,7 +52,7 @@ export default class Api {
         headers: this._headers
       })
       .then(resHandler)
-      .catch(errHandler);
+    
   }
 
   // Редактирование профиля
@@ -66,7 +66,7 @@ export default class Api {
         })
       })
       .then(resHandler)
-      .catch(errHandler);
+   
 
   }
 
@@ -83,7 +83,7 @@ export default class Api {
         })
       })
       .then(resHandler)
-      .catch(errHandler);
+    
 
   }
 
@@ -109,7 +109,7 @@ export default class Api {
         headers: this._headers,
       })
       .then(resHandler)
-      .catch(errHandler);
+  
 
   }
 
@@ -120,7 +120,7 @@ export default class Api {
         headers: this._headers,
       })
       .then(resHandler)
-      .catch(errHandler);
+    
 
   }
 
@@ -134,7 +134,7 @@ export default class Api {
         })
       })
       .then(resHandler)
-      .catch(errHandler);
+      
 
   }
 
